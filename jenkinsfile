@@ -8,11 +8,8 @@ stages {
   }
 stage ("Building the Docker image") {
   steps {
-    script {
-        withCredentials([string(credentialsId: 'sudo_password', variable: 'SUDO_PASS')]) {
-        sh 'echo $SUDO_PASS | sudo -S docker build -t jivedh2019/assign:24 .'
+    script sudo -S docker build -t jivedh2019/assign:24 .'
     }
-   }
   }
 }
  stage("Pushing the image to DockerHub") {
