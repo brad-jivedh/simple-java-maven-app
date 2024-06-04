@@ -14,5 +14,17 @@ stage ("Building the Docker image") {
     }
   }
 }
+ stage("Pushing the image to DockerHub"){
+            environment {
+                DOCKER_CREDENTIALS=credentials('docker_hub')
+            }
+            steps{
+                script {
+                  sh 'docker login -u ${DOCKER_CREDENTIALS_USR} -p {DOCKER_CREDENTIALS_PSW}'
+                  sh 'docker push jivedh/assign:${BUILD_NUMBER}'
+                }
+            }     
+        }
+
 }
 }
