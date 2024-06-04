@@ -1,0 +1,10 @@
+pipeline {
+agent {label 'kubernetes_node'}
+stage {
+  stage ("Checkout Stage") {
+    steps {
+      git branch 'master' , url: 'https://github.com/brad-jivedh/simple-java-maven-app.git'
+    }  
+  }
+}
+}
