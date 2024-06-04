@@ -6,3 +6,5 @@ stages {
       git branch: 'master' , url: 'https://github.com/brad-jivedh/simple-java-maven-app.git'
     }
 }
+}
+}
