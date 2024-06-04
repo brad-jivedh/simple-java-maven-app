@@ -1,1 +1,22 @@
-
+pipeline {
+agent any {
+  stages {
+    stage ("Checkout stage") {
+      steps {
+        git bracch: 'master' , url: 'https://github.com/brad-jivedh/simple-java-maven-app.git'
+      }
+    }
+stage ("Builiding Docker Image") {
+  steps {
+    script {
+      echo "Building the docker image"
+      sh 'sudo docker build -t jivedh2019/assign:${BUILD_NUMBER} .'
+    }
+  }
+}
+stage ("Pushing the Image to Dockerhub") {
+   echo "Pushing the image"
+}
+}  
+}
+}
