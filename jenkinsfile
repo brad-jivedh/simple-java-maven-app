@@ -14,7 +14,7 @@ stage ("Building the Docker image") {
     }
   }
 }
- stage("Pushing the image to DockerHub"){
+ stage("Pushing the image to DockerHub") {
             environment {
                 DOCKER_CREDENTIALS=credentials('docker_hub')
             }
