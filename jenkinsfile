@@ -1,5 +1,5 @@
 pipeline {
-agent any {}
+agent any
   stages {
     stage ("Checkout stage") {
       steps {
@@ -15,8 +15,9 @@ stage ("Builiding Docker Image") {
   }
 }
 stage ("Pushing the Image to Dockerhub") {
-   echo "Pushing the image"
+  steps {
+    echo "Pushing the image"
+}
 }
 }  
-
 }
