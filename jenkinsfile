@@ -6,5 +6,12 @@ stages {
       git branch: 'master' , url: 'https://github.com/brad-jivedh/simple-java-maven-app.git'
     }
   }
+stage ("Building the Docker image") {
+  steps {
+    script {
+      sh 'docker build -t "jived2019/assign:${BUILD_NUMBER} . "
+    }
+  }
+}
  }
 }
