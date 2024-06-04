@@ -3,7 +3,7 @@ agent any
   stages {
     stage ("Checkout stage") {
       steps {
-        git bracch: 'master' , url: 'https://github.com/brad-jivedh/simple-java-maven-app.git'
+        git branch: 'master' , url: 'https://github.com/brad-jivedh/simple-java-maven-app.git'
       }
     }
 stage ("Builiding Docker Image") {
