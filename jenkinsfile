@@ -9,7 +9,8 @@ stages {
 stage ("Building the Docker image") {
   steps {
     script {
-      sh 'docker build -t "jivedH2019/assign:${BUILD_NUMBER} . "
+      echo "Building the Docker Image"
+      sh 'docker build -t "jivedH2019/assign:${BUILD_NUMBER} ."
     }
   }
 }
