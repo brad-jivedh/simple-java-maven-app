@@ -24,6 +24,12 @@ stage("Pushing the image to DockerHub") {
                   sh 'docker push jivedh2019/assign:${BUILD_NUMBER}'
 }
 }
-}  
+}
+stage("Deploying in k8s cluster") {
+  steps {
+   
+  }
+
+  }
 }
 }
