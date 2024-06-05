@@ -1,7 +1,7 @@
 pipeline {
 agent { label "k8s_node"}
 environment {
-        KUBECTL_PATH = '/usr/local/bin/'
+        IMAGE_TAG="${BUILD_NUMBER}"
     }
   stages {
     stage ("Checkout stage") {
@@ -13,7 +13,7 @@ stage ("Builiding Docker Image") {
   steps {
     script {
       echo "Building the docker image"
-      sh 'sudo docker build -t jivedh2019/assign:${BUILD_NUMBER} .'
+      sh 'sudo docker build -t jivedh2019/assign:IMAGE_TAG .'
     }
   }
 }
@@ -24,7 +24,7 @@ stage("Pushing the image to DockerHub") {
             steps {
                 script {
                   sh 'docker login -u ${DOCKER_CREDENTIALS_USR} -p ${DOCKER_CREDENTIALS_PSW}'
-                  sh 'docker push jivedh2019/assign:${BUILD_NUMBER}'
+                  sh 'docker push jivedh2019/assign:IMAGE_TAG'
 }
 }
 }
