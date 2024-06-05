@@ -1,5 +1,8 @@
 pipeline {
 agent { label "k8s_node"}
+environment {
+        KUBECTL_PATH = '/usr/local/bin/'
+    }
   stages {
     stage ("Checkout stage") {
       steps {
@@ -27,9 +30,12 @@ stage("Pushing the image to DockerHub") {
 }
 stage("Deploying in k8s cluster") {
   steps {
+    script {
+    sh "${KUBECTL_PATH}/kubectl version --client"
     sh 'kubectl version --client'
     sh 'kubectl apply -f Deployment.yaml -f nodeport.yaml'
   }
+}
 }
 }
 }
