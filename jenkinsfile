@@ -20,7 +20,6 @@ stage("Pushing the image to DockerHub") {
             }
             steps {
                 script {
-                  sh 'sudo -i'
                   sh 'docker login -u ${DOCKER_CREDENTIALS_USR} -p ${DOCKER_CREDENTIALS_PSW}'
                   sh 'docker push jivedh2019/assign:${BUILD_NUMBER}'
 }
@@ -28,6 +27,7 @@ stage("Pushing the image to DockerHub") {
 }
 stage("Deploying in k8s cluster") {
   steps {
+    sh 'sudo -i'
     sh 'kubectl version --client'
     sh 'kubectl apply -f Deployment.yaml -f nodeport.yaml'
   }
