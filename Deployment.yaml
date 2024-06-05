@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: jivedh2019/assign:latest
+        image: jivedh2019/assign:IMAGE_TAG
         ports:
         - containerPort: 80
