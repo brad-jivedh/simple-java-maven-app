@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: assign-deployment
 spec:
-  replicas:1
+  replicas: 1
   selector:
-    matchlabels:
-      app: jivedh2019/assign
+    matchLabels:
+      app: jivedh2019-assign
   template:
     metadata:
       name: Jivedh2019
       labels:
-        app: jivedh2019/assign
+        app: jivedh2019-assign
     spec:
       containers:
       - name: my-container
-        image: jivedh2019/assign:7
+        image: jivedh2019/assign
         ports:
         - containerPort: 80
