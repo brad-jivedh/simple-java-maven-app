@@ -28,18 +28,9 @@ stage("Pushing the image to DockerHub") {
 }
 }
 }
-stage("Preparing environment for k8s") {
-  steps {
-    script {
-    sh "chmod +x ${KUBECTL_PATH}/kubectl"
-    env.PATH = "${KUBECTL_PATH}:${env.PATH}"
-    sh "${KUBECTL_PATH}/kubectl version --client"
-    }
-  }
-}
 stage("Deploying in k8s cluster") {
   steps {
-     sh 'kubectl apply -f Deployment.yaml -f nodeport.yaml'
+     sh 'microk8s kubectl apply -f Deployment.yaml -f nodeport.yaml'
   }
 }
 }
