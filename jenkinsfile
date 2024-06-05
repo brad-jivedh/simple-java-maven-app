@@ -21,7 +21,7 @@ stage("Pushing the image to DockerHub") {
             steps {
                 script {
                   sh 'docker login -u ${DOCKER_CREDENTIALS_USR} -p ${DOCKER_CREDENTIALS_PSW}'
-                  sh 'docker push jivedh/assign:${BUILD_NUMBER}'
+                  sh 'docker push jivedh2019/assign:${BUILD_NUMBER}'
 }
 }
 }  
