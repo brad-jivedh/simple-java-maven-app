@@ -1,5 +1,5 @@
 pipeline {
-agent any
+agent { label "k8s_node"}
   stages {
     stage ("Checkout stage") {
       steps {
@@ -25,4 +25,5 @@ stage("Pushing the image to DockerHub") {
 }
 }
 }  
+}
 }
